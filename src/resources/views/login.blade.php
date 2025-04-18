@@ -1,10 +1,15 @@
-@extends('layout.app')
+@extends ('layout.app')
 
-@section('css')
+@section ('css')
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
-@section('content')
+
+<div class="register__link">
+    <a class="register__button-submit" href="/register">register</a>
+</div>
+
+@section ('content')
 <div class="login-form__content">
     <div class="login-form__heading">
         <h2>Login</h2>
@@ -20,7 +25,7 @@
                     <input type="email" name="email" value="{{ old('email') }}" placeholder="例: test@example.com"/>
                 </div>
                 <div class="form__error">
-                    @error('email')
+                    @error ('email')
                     {{ $message }}
                     @enderror
                 </div>
@@ -35,7 +40,7 @@
                     <input type="password" name="password" placeholder="例: coachtech1106"/>
                 </div>
                 <div class="form__error">
-                    @error('password')
+                    @error ('password')
                     {{ $message }}
                     @enderror
                 </div>
@@ -45,8 +50,5 @@
           <button class="form__button-submit" type="submit">ログイン</button>
         </div>
     </form>
-    <div class="register__link">
-        <a class="register__button-submit" href="/register">register</a>
-    </div>
 </div>
 @endsection
