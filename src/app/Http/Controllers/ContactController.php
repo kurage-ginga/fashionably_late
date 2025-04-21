@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
+use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -21,10 +21,28 @@ class ContactController extends Controller
         return view('confirm', compact('name', 'tel', 'contact'));
     }
 
-    public function store(CntactRequest $request)
+    public function store(ContactRequest $request)
     {
         $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'select', 'content']);
         Contact::create($contact);
         return view('thanks');
     }
+
+    protected function create(array $data)
+    {
+        return User::create([
+            'category_id' =>$date['category_id'],
+            'name' => $data['first_name'],
+            'name_kana' =>$data['last_name'],
+            'gender' =>$data['gender'],
+            'email' => $data['email'],
+            'tel' => $data['tel'],
+            'address' => $data['address'],
+            'building' => $data['building'],
+            'detail' => $data['detail'],
+            'updated_at' => $data['updated_at'],
+            'created_at' => $data['created_at'],
+        ]);
+    }
 }
+

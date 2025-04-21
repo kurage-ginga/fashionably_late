@@ -24,3 +24,4 @@ class CategoryController extends Controller
         return view('index', compact('categories'));
     }
 }
+

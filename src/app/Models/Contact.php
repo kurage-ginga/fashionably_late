@@ -10,6 +10,8 @@ class Contact extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
+        'category_id',
         'first_name',
         'last_name',
         'gender',
@@ -17,6 +19,14 @@ class Contact extends Model
         'tel',
         'address',
         'building',
-        'detail'
+        'detail',
+
     ];
+
+    public function getDetail()
+    {
+        $txt = 'ID'.
+        $this->id . '' . $this->first_name . '' . $this->last_name . '' . $this->gender . '' . $this->email . '' . $this->tel . '' . $this->address . '' . $this->building . '' . $this->detail;
+        return $txt;
+    }
 }
